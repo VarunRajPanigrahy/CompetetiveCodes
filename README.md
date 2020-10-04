@@ -1,2 +1,3 @@
 # CompetetiveCodes
-hacktoberfest
+
+competetive codes.
