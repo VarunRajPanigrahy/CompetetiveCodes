@@ -1,0 +1,66 @@
+function insert(T, string, start_index, length){
+    i = start_index
+    while(i < length)
+        if T.arr[string[i]]) is NULL
+            T.arr[string[i]] = new node()
+            T = T.arr[string[i]]
+            while(i < length)
+                T.label = T.label+string[i]
+                i = i+1
+            endwhile
+            return 
+        endif
+
+        j=0, x=i
+        temp = T.arr[string[i]]
+        while j < temp.label.length and i < length && temp.label[j] = string[i]
+            i = i+1
+            j = j+1
+        endwhile
+
+        if i = length 
+            return
+        endif
+
+        if j = temp.label.length
+            cnt = 0
+            for k = 'a' to 'z'
+                if temp.arr[k] = NULL
+                    cnt = cnt+1
+                endif
+            endfor
+            if cnt = 27
+                while i < length
+                    temp.label = temp.label + string[i]
+                    i = i+1 
+                endwhile
+            else
+                T = temp
+            endifelse       
+        else
+            newInternalNode = new node()    
+            k=0
+            while k < j 
+                newInternalNode.label = newInternalNode.label + temp.label[k]
+                k = k+1
+            endwhile
+            newInternalNode.arr[string[j]] = new node()
+            while k < temp.label.length 
+                newInternalNode.arr[string[j]].label+=temp.label[k]
+                k = k+1
+            endwhile
+            for k = 'a' to 'z'
+                newInternalNode.arr[string[j]].arr[k] = temp.arr[k]
+            endfor
+            T.arr[string[x]] = newInternalNode  
+            T = T.arr[string[x]]
+        endifelse
+    endwhile
+}
+
+function makeSuffixTree(string, length){
+    Trie T
+        string = concatenate(string, "{")
+    for i = 0 to length
+        insertInTrie(T, string, i, length)
+}
